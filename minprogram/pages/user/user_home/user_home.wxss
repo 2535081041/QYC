@@ -1,0 +1,81 @@
+/* pages/life/life_home/life_home.wxss */
+.out_out{
+  margin: 40rpx;
+}
+.top_box{
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+}
+.info_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left_info{
+  width: 75%;
+}
+.hi{
+  font-size: x-large;
+}
+.txt{
+  font-weight: 300;
+  font-size: 28rpx;
+}
+
+.right_info{
+  width: 25%;
+  text-align: right;
+}
+.photo{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+}
+.green_txt{
+  color: rgb(4, 138, 93);
+  font-size: 28rpx;
+}
+
+/* 功能区 */
+.title{
+  padding-top: 38rpx;
+}
+.grid_box{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.img{
+  width: 64rpx;
+  height: 64rpx;
+}
+.func_grid{
+  text-align: center;
+  font-weight: 320;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 25rpx;
+}
+.func_img{
+  height: 100rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 其他 */
+.right_label{
+  width: 32rpx;
+  height: 32rpx;
+}
+.else_box{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-weight: 320;
+}

@@ -1,0 +1,51 @@
+<movable-area style="height: 100vh; width: 100vw;">
+  <movable-view style="height: 100vh; width: 100vw;" direction='all' out-of-bounds>
+<view class="out_out">
+  <view class="top_box">
+    <view class="info_box">
+      <view class="left_info">
+        <view class="hi">Hi {{name?name:'不留名校友'}}</view>
+        <text class="txt" style="display: {{stu_id?'':'none'}};">已认证学号：{{stu_id}}</text>
+        <text class="txt" style="display: {{stu_id?'none':''}};">未认证</text>
+      </view>
+      <view class="right_info">
+        <image class="photo" src="{{photo_path?photo_path:'/staic/img/user.png'}}" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="green_txt" bind:tap="to_change_user_info">修改个人信息</view>
+  </view>
+  <!-- 功能区 -->
+  <view class="title">功能区</view>
+  <view class="grid_box">
+    <grid-view cross-axis-count='3'>
+      <view class="func_grid" bind:tap="to_change_user_info">
+        <view class="func_img">
+          <image class="img" src="/staic/img/edit.png" mode="aspectFit"></image>
+        </view>
+        <view class="func_name">信息修改</view>
+      </view>
+      <view class="func_grid" bind:tap="to_user_login">
+        <view class="func_img">
+          <image class="img" src="/staic/img/knot.png" mode="aspectFit"></image>
+        </view>
+        <view class="func_name">学号认证</view>
+      </view>
+      <view class="func_grid" bind:tap="to_manage">
+        <view class="func_img">
+          <image class="img" src="/staic/img/document.png" mode="aspectFit"></image>
+        </view>
+        <view class="func_name" >帖子管理</view>
+      </view>
+    </grid-view>
+  </view>
+
+  <!-- 其他区 -->
+  <view class="title">其他</view>
+  <view class="else_box" bind:tap="to_else">
+    <view class="else_name">必看</view>
+    <image class="right_label" src="/staic/img/right-chevron.png" mode="aspectFit"/>
+  </view>
+</view>
+
+</movable-view>
+</movable-area>
