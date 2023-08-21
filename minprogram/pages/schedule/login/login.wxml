@@ -1,0 +1,14 @@
+<view class="container">
+  <form class="form" bindsubmit="submit">
+    <view class="title"> 数据同步 & 学号认证 </view>
+    <view class="input-box">
+      <image class="img" mode="aspectFit" src="/staic/img/user.png"></image>
+      <input  name='stu_id' value="{{stu_id}}" placeholder="请输入学号" placeholder-style="string"></input>
+    </view>
+    <view class="input-box">
+      <image class="img" mode="aspectFit" src="/staic/img/padlock.png"></image>
+      <input  name='password' password value="{{password}}" placeholder="输入数字广大密码" placeholder-style="string"></input>
+    </view>
+    <button class="submit" form-type="submit">同步 & 认证</button>
+  </form>
+</view>
