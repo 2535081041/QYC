@@ -1,0 +1,59 @@
+<view class="outoutout">
+
+<scroll-view 
+class="out_out" 
+scroll-y 
+scroll-with-animation
+enable-passive
+type="custom"
+bindscrolltolower="get_more_item"
+enable-back-to-top
+refresher-enabled
+bindrefresherrefresh='get_new_item'
+refresher-triggered="{{update_status}}"
+refresher-default-style='black'
+>
+  <view class="item" 
+  wx:for="{{item_ids}}" wx:for-item="item_id" wx:for-index="item_id_index" wx:key="item_id_index">
+
+    <view class="left_box">
+      <view class="photo_box">
+        <image lazy-load class="photo" src="{{img_root + items[item_id].photo_path}}" mode="aspectFill"/>
+      </view>
+    </view>
+    <view class="right_box" bind:tap="to_detail" data-item_id="{{item_id}}">
+      <view class="top_info">
+        <text class="name">{{items[item_id].name}}</text>  
+
+        <view class="col_com">
+          <image lazy-load="{{true}}" class="col_com_label" src="/staic/img/heart0.png" mode="aspectFill"></image>
+          <text>{{col_com_num[item_id][0]}}</text>
+          <image lazy-load="{{true}}" class="col_com_label" src="/staic/img/comment.png" mode="aspectFill"></image>
+          <text>{{col_com_num[item_id][1]}}</text>
+        </view>
+      </view>
+  
+      <view class="title"># {{items[item_id].item_title}}</view>
+      <text class="body" >{{items[item_id].item_body}}</text>
+
+      <view class="img_box">
+        <grid-view cross-axis-count="3">
+          <view class="img_" 
+          wx:for="{{items[item_id].img_path}}" wx:for-item="img_path" wx:for-index="img_index" wx:key="img_index">
+            <image class="img" lazy-load  
+            src="{{img_root + img_path}}" mode="aspectFill"
+            bind:tap="show_img_detail" data-url="{{items[item_id].img_path}}" data-index="{{img_index}}"/>
+          </view>
+        </grid-view>
+      </view>
+    </view>
+  </view>
+  <view class="buttom">
+  触及了我的底线
+  </view>
+
+</scroll-view>
+
+<!-- 发布的图标 -->
+<image bind:tap="to_emit" class="emit_label" src="/staic/img/plus.png" mode="aspectFill"></image>
+</view>
