@@ -1,0 +1,1 @@
+user_photo_path = '../img/TY/dir1/user_photo/'  # 用户头像的存放位置
