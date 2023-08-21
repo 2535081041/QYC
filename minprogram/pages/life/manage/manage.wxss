@@ -1,0 +1,99 @@
+.top_bar{
+  position: fixed;
+  top: -1rpx;
+  width: 100%;
+  z-index: 10;
+}
+.type{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  background-color: #f8fbfc;
+}
+.on_choose{
+  font-size: large;
+  border-bottom: 1px solid rgb(233, 111, 111);
+}
+
+/* 每一个帖子的框架 */
+.item_box{
+  margin-top: 80rpx;
+}
+.item{
+  padding: 10rpx;
+  padding-top: 30rpx;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.301);
+
+  display: flex;
+  justify-content: space-between;
+}
+/* 左边的头像框 */
+.left_box{
+  width: 13%;
+}
+.photo_box{
+  text-align: center;
+  width: 100%;
+}
+.photo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 15rpx;
+}
+.time{
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+/* 右边的信息框 */
+.top_info, .col_com{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.col_com{
+  color: gray;
+  font-size: small;
+}
+.col_com_label{
+  height: 35rpx;
+  width: 35rpx;
+  margin-right: 7rpx;
+  margin-left: 7rpx;
+}
+.name{
+  flex: 1;
+}
+
+.right_box{
+  line-height: 1.6em;
+  flex: 1;
+}
+.title{
+  color: rgb(12, 78, 45);
+}
+.body{
+  line-height: 1.2em;
+  font-size: smaller;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* 帖子图片框 */
+.img_box{
+  width: 450rpx;
+  margin: 15rpx;
+}
+.img_{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160rpx;
+}
+.img{
+  height: 130rpx;
+  width: 130rpx;
+  border-radius: 10rpx;
+}

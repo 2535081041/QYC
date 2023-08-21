@@ -1,0 +1,48 @@
+<view class="top_bar">
+  <grid-view cross-axis-count="3">
+    <view class="type" bind:tap="choose" data-type="1"> <text class="{{type==1?'on_choose':''}}">发表</text>  </view>
+    <view class="type"bind:tap="choose" data-type="2"><text class="{{type==2?'on_choose':''}}">收藏</text></view>
+    <view class="type"bind:tap="choose" data-type="3"><text class="{{type==3?'on_choose':''}}">参与评论</text></view>
+  </grid-view>
+</view>
+
+<view class="item_box">
+<view  
+  wx:for="{{current_id_lists}}"  wx:for-item="item_id" wx:for-index="item_id_index" wx:key="item_id_index"
+  bind:longpress="delete_item" data-item_id="{{item_id}}"
+  >
+  <label style="display: {{items[item_id]?'':'none'}};" class="item">
+    <view class="left_box">
+      <view class="photo_box">
+        <image lazy-load class="photo" src="{{items[item_id].photo_path?img_root + items[item_id].photo_path :'/staic/img/user.png'}}" mode="aspectFill"/>
+      </view>
+    </view>
+    <view class="right_box" bind:tap="to_detail" data-item_id="{{item_id}}">
+      <view class="top_info">
+        <text class="name">{{items[item_id].name}}</text>  
+        <view class="col_com">
+          <image lazy-load="{{true}}" class="col_com_label" src="/staic/img/heart0.png" mode="aspectFill"></image>
+          <text>{{col_com_num[item_id][0]}}</text>
+          <image lazy-load="{{true}}" class="col_com_label" src="/staic/img/comment.png" mode="aspectFill"></image>
+          <text>{{col_com_num[item_id][1]}}</text>
+        </view>
+      </view>
+  
+      <view class="title"># {{items[item_id].item_title}}</view>
+      <text class="body" >{{items[item_id].item_body}}</text>
+
+      <view class="img_box">
+        <grid-view cross-axis-count="3">
+          <view class="img_" 
+          wx:for="{{items[item_id].img_path}}" wx:for-item="img_path" wx:for-index="img_index" wx:key="img_index">
+            <image class="img" lazy-load  
+            src="{{img_root + img_path}}" mode="aspectFill"
+            bind:tap="show_img_detail" data-url="{{item.img_path}}" data-index="{{img_index}}"/>
+          </view>
+        </grid-view>
+      </view>
+    </view>
+  </label>
+
+</view>
+</view>
