@@ -8,9 +8,9 @@ from my_app.course.course_func import year_sem
 from my_app.life.life_models import User_Item_Com
 
 """ 重要数据 """
-appid = 'wxcde836eeacf28725'
-secret = '90ce47acbe9db4a1b8aebb9c74348266'
-grant_type = '90ce47acbe9db4a1b8aebb9c74348266'
+appid = ''
+secret = ''
+grant_type = ''
 
 # todo 根据code换取用户信息
 def get_user_info(code):
