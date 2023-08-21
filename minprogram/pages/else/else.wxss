@@ -1,0 +1,23 @@
+/* pages/else/else.wxss */
+.out_out{
+  padding: 30rpx;
+  background-color: rgb(252, 255, 246);
+}
+.txt{
+  color: rgb(4, 138, 93);
+  border-bottom: 1px solid rgb(4, 138, 93);
+}
+
+
+.info_box{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+}
+.title{
+  line-height: 2em;
+}
+.value{
+  line-height: 1.4em;
+  color: rgb(58, 58, 58);
+}

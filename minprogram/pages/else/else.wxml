@@ -1,0 +1,15 @@
+<movable-area style="height: 100vh; width: 100vw;">
+  <movable-view style="height: 100vh; width: 100vw;" direction='all' out-of-bounds>
+    <view class="out_out">
+      <view class="info_box">
+        <view class="title">写在最前</view>
+        <view class="value">很荣幸您能来体验此小程序！！若有任何问题都可联系笔者（<text class="txt" bind:tap="get_connact">点击可获得笔者联系方式</text>）</view>
+      </view>
+      <view class="info_box" wx:for="{{data}}" wx:key="index">
+        <view class="title">{{item.title}}</view>
+        <view class="value">{{item.body}}</view>
+      </view>
+
+    </view>
+  </movable-view>
+</movable-area>
