@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/schedule/home/home",
+    "pages/schedule/login/login",
+    "pages/user/user_home/user_home",
+    "pages/user/change_user_info/change_user_info",
+    "pages/life/life_home/life_home",
+    "pages/life/emit/emit",
+    "pages/life/detail/detail",
+    "pages/life/manage/manage",
+    "pages/else/else"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#FFF5EE",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ECAE9B",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/schedule/home/home",
+        "text": "course",
+        "iconPath": "/staic/img/graduation.png",
+        "selectedIconPath": "/staic/img/graduation.png"
+      },
+      {
+        "pagePath": "pages/user/user_home/user_home",
+        "text": "user",
+        "iconPath": "/staic/img/user.png",
+        "selectedIconPath": "/staic/img/user.png"
+      },
+      {
+        "pagePath": "pages/life/life_home/life_home",
+        "text": "find",
+        "iconPath": "/staic/img/view.png",
+        "selectedIconPath": "/staic/img/view.png"
+      }
+    ]
+  }
+}
