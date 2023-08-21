@@ -1,0 +1,155 @@
+.out{
+  padding: 30rpx;
+  padding-bottom: 100rpx;
+}
+/* 图片滑块 */
+.swiper{
+  height: 50vh;
+}
+.img_box{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.img{
+  height: 45vh;
+}
+
+/* 发布者信息 */
+.up_info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  padding: 10rpx;
+}
+.up_photo{
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 20rpx;
+}
+.up_name{
+  flex: 1;
+  margin-left: 10rpx;
+}
+.up_time{
+  font-size: small;
+  color: gray;
+}
+/* 帖子信息区 */
+.item_info{
+  padding: 10rpx;
+  padding-bottom: 30rpx;
+  line-height: 1.5em;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30rpx;
+}
+.item_body{
+  font-size: 28rpx;
+}
+
+/* 评论区 */
+.comment_area{
+  padding: 10rpx;
+}
+.com_title{
+  margin-bottom: 20rpx;
+}
+.comment{
+  font-size: 30rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  margin-bottom: 20rpx;
+}  
+/* 父评论左侧头像 */
+.left_{
+  width: 90rpx;
+}
+.father_photo{
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 20rpx;
+}
+/* 右边评论详细 */
+.right_{
+  flex: 1;
+}
+.name_time{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  color:rgb(85, 84, 84);
+}
+.time{
+  color: gray;
+  font-size: x-small;
+}
+/* 子评论 */
+.child_comment_box{
+  background-color: rgb(238, 240, 240);
+  margin-top: 20rpx;
+  padding: 5rpx;
+  border-radius: 20rpx;
+}
+.child_left_{
+  display: flex;
+  justify-content: center;
+  width: 70rpx;
+}
+.child_photo{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 20rpx;
+}
+
+/* 底部悬浮 */
+.buttom_box{
+  position: fixed;
+  background-color: rgb(250, 250, 250);
+  bottom: 0;
+  border-top: 1px solid #ccc;
+  width: 100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.buttom_input{
+  border: 1px solid #ccc; 
+  border-radius: 50rpx;
+  flex: 1;
+  height: 70rpx;
+  margin: 15rpx;
+  padding-left: 20rpx;
+}
+.buttom_label{
+  margin-left: 15rpx;
+  margin-right: 10rpx;
+
+  height: 60rpx;
+  width: 60rpx;
+}
+
+/* 输入框 */
+.input_area{
+  background-color: rgb(250, 250, 250);
+  position: fixed;
+  width: 100%;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.input{
+  border: 1px solid #ccc;
+  border-radius: 30rpx;
+  padding: 20rpx;
+  flex:1;
+}
+.btn{
+  margin: 10rpx;
+  margin-right: 40rpx;
+}

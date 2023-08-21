@@ -1,0 +1,106 @@
+<view class="out">
+  <swiper  
+  class="swiper"
+  interval='4000' 
+  circular="true" 
+  indicator-dots="true"
+  easing-function="linear" 
+  wx:if="{{item.img_path.length!=0}}"
+  >
+  <!-- 图片区 -->
+    <swiper-item class="img_box"
+    wx:for="{{item.img_path}}" wx:for-item="path" wx:key="index"
+    bind:tap="show_img_detail" data-index="{{index}}"
+    > 
+      <image wx:if="{{path}}" class="img" lazy-load="{{true}}" src="{{img_root + path}}" mode="aspectFit"/>
+    </swiper-item>
+  </swiper>
+
+  <!-- 发表者信息区 -->
+  <view class="up_info">
+    <image class="up_photo" src="{{item.photo_path ? img_root+item.photo_path : '/staic/img/user.png'}}" mode="aspectFill"/>
+    <view class="up_name">{{item.name}}</view>
+    <view class="up_time">{{item.item_time}}</view>
+  </view>
+
+  <!-- 帖子信息区 -->
+  <view class="item_info">
+    <view class="item_title">{{item.item_title}}</view>
+    <view class="item_body">{{item.item_body}}</view>
+  </view>
+
+  <!-- 评论区 -->
+  <view class="comment_area">
+    <view class="com_title">评论 {{com_num}}</view>
+
+    <label wx:for="{{father_comments}}" wx:for-item="father_comment" wx:key="index">
+      <view class="comment">
+        <!-- 左侧头像栏 -->
+        <view class="left_">
+          <image class="father_photo" src="{{father_comment.user_photo_url ? img_root+father_comment.user_photo_url : '/staic/img/user.png'}}" mode="aspectFill"></image>
+        </view>
+        <!-- 右侧评论详细 -->
+        <view class="right_">
+          <view bind:tap="showInput"  data-father_index="{{index}}" data-grafather_index="-1"
+          bind:longpress="delete_comment">
+            <view class="name_time">
+              <text class="name">{{father_comment.user_name}}</text>
+              <text class="time">{{father_comment.com_time}}</text>
+            </view>
+            <text class="value">{{father_comment.com_value?father_comment.com_value:'评论已删除'}}</text>          
+          </view>
+
+          <!-- 子评论 -->
+          <view class="child_comment_box">
+            <label wx:for="{{child_comments[father_comment.com_id]}}" wx:for-item="child_comment" wx:for-index="i" wx:key="i">
+              <view class="comment" 
+              bind:tap="showInput"  data-father_index="{{i}}" data-grafather_index="{{index}}"
+              bind:longpress="delete_comment">
+                <view class="child_left_">
+                  <image class="child_photo" src="{{child_comment.user_photo_url ? img_root+child_comment.user_photo_url : '/staic/img/user.png'}}" mode="aspectFill"></image>
+                </view>
+                <view class="right_">
+                  <view class="name_time">
+                    <text class="name">{{child_comment.user_name}}</text>
+                    <text class="time">{{child_comment.com_time}}</text>
+                  </view>
+                  <view class="value">回复 <text style="color: rgb(85, 84, 84);">{{child_comment.com_father_name}}：</text>{{child_comment.com_value}}</view>
+                </view>
+              </view>
+            </label>
+          </view>
+        </view>
+      </view>
+    </label>
+  </view>
+</view>
+
+  <!-- 底部栏 -->
+<view class="buttom_box" wx:if="{{!showInput}}">
+  <input class='buttom_input' type="text" value="" 
+  placeholder="所思所想..." placeholder-style="" disabled
+  bind:tap="showInput" data-father_index="-1" data-grafather_index="-1"
+   />
+  <image class="buttom_label" bind:tap="bind_collect" src="{{heart}}" mode="aspectFill"></image>  
+  <text style="margin-right: 20rpx;">{{collect_num}}</text>
+</view>
+
+<!-- 输入框 -->
+<form bindsubmit="send_comment">
+  <view class="input_area" wx:if="{{showInput}}"
+  style="bottom:{{bottom==0 ? 0 : bottom + 20}}rpx"
+  > 
+    <textarea class="input"
+    placeholder="{{placeholder}}" placeholder-style="" maxlength="-1"
+    auto-focus="{{true}}" 
+    focus="{{focus}}"  
+    auto-height="{{true}}"
+    show-confirm-bar="{{false}}"
+    adjust-position="{{false}}"
+    adjust-keyboard-to="bottom"
+    bindblur="losefocus"
+    name="value"
+    ></textarea>
+    <button class='btn' size="mini" form-type="submit" type="primary">发送</button>
+  </view>
+</form>
