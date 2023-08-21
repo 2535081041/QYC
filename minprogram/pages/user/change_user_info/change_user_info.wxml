@@ -1,0 +1,20 @@
+<movable-area style="height: 100vh; width: 100vw;">
+  <movable-view style="height: 100vh; width: 100vw;" direction='all' out-of-bounds>
+<form class="out_out" bindsubmit="acknowledge">
+    <button class="photo_box"  open-type="chooseAvatar" bind:chooseavatar="choose_photo">
+      <view style="position: relative;">
+        <image class="photo" src="{{new_photo_path}}" mode="aspectFit"/>
+        <image class='edit_label' src="/staic/img/edit1.png" mode="aspectFit"></image>
+      </view>
+    </button> 
+
+  <view class="input_box">
+    <view class="input_title">昵称</view>
+    <view class="input">
+      <input  type="nickname" name="name" value="{{name}}" class="weui-input" placeholder="请输入昵称" maxlength='8'/>
+    </view>
+  </view>
+  <button class="btn" type="warn"  form-type="submit">确定修改</button>
+</form>
+</movable-view>
+</movable-area>
