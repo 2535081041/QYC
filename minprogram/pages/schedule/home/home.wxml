@@ -1,0 +1,160 @@
+<view class="outout">
+<!-- 1 日期栏 -->
+<view class="top" bind:tap="show_options">
+  <view class="week_num" style="color: {{ current_swiper_index==current_week_index?'':'red'}};">
+    <view style="height: 40rpx;">{{ current_swiper_index==0?'All': current_swiper_index}}</view>
+  </view>
+  <view class="date">
+    <view class="day" style="color: {{ current_swiper_index==current_week_index?'':'red'}};">
+    {{ current_swiper_index==0? show_date: '第' + current_swiper_index + '周' +  ' ' + show_date }} </view>
+    <view class="weekday">
+      <view class="weekday_box" wx:for="{{day_name}}" wx:key="index">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 2 课表展示 -->
+<view class="kb_container">
+  <!-- 2.1 左侧节数栏 -->
+  <view class="left_nav">
+    <view class="nav_box" wx:for="{{[1,2,3,4,5,6,7,8,9,10,11]}}" wx:key="index">
+      {{item}}
+    </view>
+  </view>
+  <!-- 2.2 右侧课表展示栏 -->
+  <swiper class="right_kb_box" indicator-dots="{{false}}"  current="{{current_swiper_index}}"
+  bindchange='week_change' >
+    <!-- 第一个滑块为总课表的显示 -->
+    <swiper-item class="kb_week"> 
+      <view class="kb_day" wx:for="{{day_name}}" wx:for-index='day_index' wx:key="day_index">
+        <view class="course" 
+        wx:for="{{time_map_crude[day_index]}}" wx:for-item="course_index" wx:key="index"
+        style="margin-top: {{ (course_list[course_index]['start'] - 1) * 130 }}rpx;height: {{ course_list[course_index]['last'] * 130 }}rpx;background-color: {{ colors[course_list[course_index]['color']] }};"
+        bind:tap="show_course_detail" data-course_index="{{ course_index}}"
+        >
+          <view>
+            {{ course_list[course_index]["course_name"] }}
+          </view>
+          <view style="font-weight: lighter;">
+            @{{ course_list[course_index]["class_place"] }}
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <!-- 之后的滑块为每周课表的显示 -->
+    <swiper-item class="kb_week" 	 
+    wx:for="{{weeks_num}}" wx:for-item="week" wx:for-index="week_index" wx:key="index">
+      <view class="kb_day" 
+      wx:for="{{day_name}}" wx:for-item="day" wx:for-index="day_index" wx:key="index">
+        <view class="course" wx:for="{{time_map_detail[week_index+1][day_index]}}" wx:for-item="course_index" wx:key="index"
+        style="margin-top: {{ (course_list[course_index]['start'] - 1) * 130 }}rpx; height: {{ course_list[course_index]['last'] * 130 }}rpx;background-color: {{ colors[course_list[course_index]['color']] }};"
+        bind:tap="show_course_detail" data-course_index="{{ course_index}}"
+        >
+
+          <view>
+            {{ course_list[course_index]["course_name"] }}
+          </view>
+          <view style="font-size: smaller;color:gray;">
+            @{{ course_list[course_index]["class_place"] }}
+          </view>
+        </view>
+      <!-- {{ week_index + day_index}} -->
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+<!-- 3 遮罩层，显示课程详细信息 -->
+<root-portal >
+<movable-area  class="move_area" wx:if="{{show_detail}}" bind:tap="close_detail">
+  <movable-view class="mask" damping="30" x="{{detail_x}}" y="0"  direction="all">
+    <view class="mask_box">
+      <view class="course_name" style="background-color: {{colors[course_list[course_index].color]}};"> {{course_list[course_index].course_name}} </view>
+      <view class="box">
+        <view class="detail_box" >
+          <view class="detail">
+            <label class="text">课室：</label> {{course_list[course_index].class_place}}
+          </view>
+          <view class="detail">
+            <label class="text">时间：</label>
+            <label >
+              {{course_list[course_index].weeks}} {{course_list[course_index].which_day}}
+            </label>
+          </view>
+          <view class="detail">
+            <label class="text">节段：</label>
+            {{course_list[course_index].course_time}}
+          </view>
+          <view class="detail">
+            <label class="text">教师：</label>
+            {{course_list[course_index].teacher}}
+          </view>
+          <view class="detail">
+            <label class="text">学分：</label>
+            {{course_list[course_index].credit}}
+          </view>
+          <view class="detail">
+            <label class="text">考核：</label>
+            {{course_list[course_index].check_type}}
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+  </movable-view>
+</movable-area>
+
+</root-portal>
+
+<!-- 4 实践课程 -->
+<view class="sjkb_box">
+  <view class="sj_title">实践课程</view>
+  <view class="sjkb" wx:for="{{sjk_course_list}}" wx:for-index='index' wx:for-item='course' wx:key="index">
+    {{course["sjk_course_name"]}} & {{course["sjk_teacher"]}} & {{course["sjk_weeks"]}} & {{course["sjk_credit"]}}
+  </view>
+</view>
+
+<!-- 5 选择周数的表格 -->
+<root-portal enable="{{false}}" bind:tap="close_options">
+<movable-area class="move_area" wx:if="{{show_week_option}}">
+  <movable-view  x="{{week_x}}" damping="30" class="mask"  direction="all"> 
+    <view class="grid_box">
+      <grid-view  cross-axis-count='5'>
+        <view class="week_grid" wx:for="{{weeks_num}}" wx:key="index" bind:tap="select_options" data-option="{{item}}" style="color:{{ current_week_index==item ? 'red' : ''}};"
+        >
+        {{item}}</view>
+        <view class="week_grid" bind:tap="select_options" data-option="0" style="color:{{ current_week_index==0 ? red : ''}};">all</view>
+      </grid-view>
+    </view>
+  </movable-view>
+</movable-area>
+</root-portal>
+<!-- 6 左下角的悬浮按钮 -->
+<view class="btn_box" bind:tap="show_function_option" >
+  <image src="/staic/img/up-arrow.png" mode="aspectFit" style="height: 75rpx; width: 75rpx;"/>
+</view>
+</view>
+
+<!-- 7 点击悬浮按钮显示出来的功能导航 -->
+<root-portal enable="{{false}}">
+<movable-area class="func_move_area" wx:if="{{show_func_option}}" bind:tap="close_function_option">
+  <movable-view  x="0" y="{{func_y}}" damping="50"   direction="all"
+  class="func_mask" > 
+  <view class="func">
+    <view>
+      <view class="func_box" bind:tap="ascyn_course">数据同步</view>
+    </view>
+    <picker mode="selector" range="{{semester_options}}" bindchange='change_semester' value="0">
+      <view class="func_box" >学期切换</view>
+    </picker>
+  </view>
+
+  </movable-view>
+</movable-area>
+</root-portal>
+

@@ -1,0 +1,248 @@
+/* 1 顶栏 */
+.top{   
+  opacity: 0.7;
+  
+  position: fixed;    
+  top: 0;
+  z-index: 1;
+  height: 80rpx;
+
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color:#FFFAFA;
+}
+
+/* 1.1 左边的周数 */
+.week_num{
+  font-size: smaller;
+  text-align: center;
+  width: 50rpx;
+  justify-content: center;
+  align-items: center;
+}
+/* 1.2 右边的日期 */
+.date{
+  font-size: x-small;
+  width: 700rpx;
+  text-align: center;
+}
+/* 1.2.1 右方上方的日期 */
+.day{
+  height: 35rpx;
+}
+/* 1.2.2 右方下方的周数 */
+.weekday{
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+}
+.weekday_box{
+  height: 30rpx;
+  width: 100rpx;
+}
+
+/* 2 课表容器 */
+.kb_container{
+  height: 1441rpx;
+  margin-top: 83rpx;
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+/* 2.1 左边的节数显示栏 */
+.left_nav{
+  width: 50rpx;
+}
+/* 2.1.1  节数显示*/
+.nav_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130rpx;
+  text-align: center;
+}
+
+/* 2.2 右边的课表 */
+.right_kb_box{
+  width: 700rpx;
+  height: 1441rpx;
+}
+/* 2.2.1 周课表样式 */
+.kb_week{
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/* 2.2.1.1 日课表样式 */
+.kb_day{
+  width: 100rpx;
+  height: 100%;
+}
+/* 2.2.1.1.1 每一门课的样式 */
+.course{
+  border-radius: 10rpx;
+  
+  width: 100rpx;
+  font-size: smaller;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* 3 遮罩层 */
+.move_area{
+  height: 100vh;
+  width: 220vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.mask{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(114, 114, 114, 0.5);
+  z-index: 21;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mask_box{
+  width: 65%;
+  height: 40%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+/* 3.1 细节中的名称 */
+.course_name{
+  height: 25%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;	
+  font-weight: bold;
+  font-size: large;
+}
+/* 3.2 细节以及按钮组件 */
+.box{
+  background-color: honeydew;
+  height: 75%;
+}
+/* 3.2.1 弹窗出来的课程细节 */
+.detail_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15rpx;
+}
+
+/* 3.1.1 详细信息 */
+.detail{
+  margin: 5rpx;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+}
+.text{
+  font-weight: bold;
+}
+.close_label{
+  height: 50rpx;
+  margin-top: 15rpx;
+  width: 100%;
+}
+
+
+/* 4 实践课程 */
+.sjkb_box{
+  border-top: 1px solid #ccc;
+
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;	
+}
+.sj_title{
+  font-size: large;
+  font-weight: bold;
+  margin: 15rpx;
+}
+.sjkb{
+  background-color:#F6FCF2;
+  display: flex;  
+  align-items: center;
+  justify-content: center;	
+
+  width: 90%;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+
+}
+
+/* 5 课表选择弹窗 */
+
+/* 5.1 每一个选项 */
+.week_grid{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: honeydew;
+  border-radius: 10rpx;
+  font-size: x-large;
+  font-weight: lighter;
+
+  margin: 5rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 6 左下角悬浮按钮 */
+.btn_box{
+  position:fixed;
+  opacity: 0.5;
+  z-index: 10;
+  top: 87vh;
+  left: 80vw;
+}
+
+/* 7 功能栏 */
+.func_mask{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(114, 114, 114, 0.5);
+  z-index: 21;
+}
+.func_move_area{
+  height: 200vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.func{
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30rpx;
+}
+.func_box{
+  background-color:#eaf5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+  margin: 10rpx;
+  height: 70rpx;
+  margin: 30rpx;
+}
