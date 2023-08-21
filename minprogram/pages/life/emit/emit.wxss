@@ -1,0 +1,53 @@
+.out_out{
+  height: 90vh; /* 设置容器高度，以便容器可以滚动 */
+  margin: 45rpx;
+  margin-top: 20rpx;
+}
+.title{
+  font-size: large;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+.textarea{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+.img_box{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.img_grid{
+  width: 220rpx;
+  height: 220rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img{
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.plus_add{
+  width: 64rpx;
+  height: 64rpx;
+}
+.btn{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.txt{
+  color: gray;
+}
+.btn_box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50rpx;
+}

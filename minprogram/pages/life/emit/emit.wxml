@@ -1,0 +1,34 @@
+<movable-area style="height: 100vh; width: 100vw;">
+  <movable-view style="height: 100vh; width: 100vw;" direction='all' out-of-bounds>
+  <form bindsubmit="emit_item" >
+    <view class="out_out">
+      <input class="title" name='title' value="{{title}}" type="text" placeholder="# 主题，可为空" placeholder-style="" maxlength="15"></input>
+      <textarea class="textarea" name='body' value="{{body}}" maxlength="-1"  auto-height  placeholder="此刻的想法..." adjust-keyboard-to="bottom"/>
+      <view class="img_box">
+        <grid-view 	cross-axis-count="3">
+          <view  class="img_grid"
+          wx:for="{{img_path}}" wx:for-item="path" wx:key="index"
+          bind:longpress="delete_img" data-index="{{index}}">
+            <image class="img" src="{{path}}" mode="aspectFill"/>
+          </view>
+          <view class="img_grid" 
+          style="display: {{img_num<3?'false':'none'}}; background-color: rgb(233, 233, 233);"
+          bind:tap="add_img"
+          >
+            <image class="plus_add" src="/staic/img/plus.png" mode="aspectFill"/>
+          </view>
+        </grid-view>
+      </view>
+      <view style="color: gray; display: {{img_num>0?'false':'none'}}; font-size: small;">长按图片删除，大于2M的图片无法导入</view>
+      <view class="btn_box">
+        <view class="btn">
+          <button   type="warn" data-type="0" form-type="submit">保存草稿</button>
+        </view>
+        <view class="btn">
+          <button   type="warn" data-type="1" form-type="submit">发表</button>
+        </view>
+      </view>
+    </view>
+  </form>
+  </movable-view>
+</movable-area>
